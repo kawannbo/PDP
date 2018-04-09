@@ -7,12 +7,21 @@ abstract class Decorator implements Component {
         $this->compo = $compo;
     }
 
-    public function getText() {
-        return $this->compo->getText();
+    public function getEmotion() {
+        return $this->compo->getEmotion();
     }
 
-    public function setText($text) {
-        $this->compo->setText($text);
+    public function getComponent() {
+      return get_class($this->compo);
+    }
+
+    public function setEmotion($emotion) {
+        $this->compo->setEmotion($emotion);
+    }
+
+    // コンポーネント名を返す
+    public function getClassName() {
+        echo get_class($this) , "\n";
     }
 }
 ?>

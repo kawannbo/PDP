@@ -1,6 +1,6 @@
 <?php
 interface Component {
-    public function getText();
-    public function setText($text);
+    public function getEmotion();
+    public function setEmotion($emotion);
 }
 ?>
