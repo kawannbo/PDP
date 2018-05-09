@@ -1,35 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <form id="form_1" method="post" accept-charset="utf-8" return false>
+        <p>ホスト名もしくはIPアドレス <input type="text" name = "userid" id ="userid"> </p>
+        <p>ユーザ名 <input type="text" name = "username" id="username"> </p>
+        <p>パスワード <input type="text" name = "passward" id="passward"> </p>
+        <p>ポート番号 <input type="text" name = "portnum" id="portnum"> </p>
+    </form>
+
+    <form id="db_bk" method="post" accept-charset="utf-8" return false>
+        <p>DB名 <input type="text" name = "dbname" id ="dbname"> </p>
+        <p>ユーザ名 <input type="text" name = "dbusername" id="dbusername"> </p>
+        <p>パスワード <input type="text" name = "dbpassward" id="dbpassward"> </p>
+    </form>
+
+    <button id="ajax">ajax</button>
+    <div class="result"></div>
+
+    <script type="text/javascript">
+
+        $(function(){
+            // Ajax button click
+            $('#ajax').on('click',function(){
+                $.ajax({
+                    url:'./request.php',
+                    type:'POST',
+                    data:{
+                        'userid':$('#userid').val(),
+                        'passward':$('#passward').val()
+                    }
+                })
+                // Ajaxリクエストが成功した時発動
+                .done( (data) => {
+                    $('.result').html(data);
+                    console.log(data);
+                })
+                // Ajaxリクエストが失敗した時発動
+                .fail( (data) => {
+                    $('.result').html(data);
+                    console.log(data);
+                })
+                // Ajaxリクエストが成功・失敗どちらでも発動
+                .always( (data) => {
+
+                });
+            });
+        });
+
+    </script>
+</body>
+</html>
+
 <?php
-
-// 値渡し
-function func_atai_watashi($value) {
-    $value = "値渡しされた";
-    echo "func_atai_watashiの関数の中のvalue : {$value}<br/>";
-}
-// 参照渡し
-function func_sansyo_watashi(&$value) {
-    $value = "参照渡しされた";
-    echo "func_sansyo_watashiの関数の中のvalue : {$value}<br/>";
-}
-
-$value = "٩( ᐛ )و";
-echo "関数に入れる前の値: {$value}<br/>";
-echo '<br/>';
-
-func_atai_watashi($value);
-echo "func_atai_watashiに渡した後の値 : {$value}<br/>";
-func_sansyo_watashi($value);
-echo "func_sansyo_watashiに渡した後の値 : {$value}<br/>";
-
-
-setcookie("access_count", 0);
-
-// クッキーを取得する
-// 名前：access_count
-$count = $_COOKIE["access_count"] + 1;
-
-echo $count . "回目のアクセスありがとうございます。";
-
-// クッキーを保存する
-// 名前：access_count
-// データ：現在値+1
-setcookie("access_count", $count + 1);
+$output = shell_exec("~/Documents/bashProject/projectBK.sh");
+echo $output;
