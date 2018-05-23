@@ -17,8 +17,8 @@
         $result = nl2br($str);
         echo $result;
 
-        $output = shell_exec("/var/www/html/PDP/test/bk_project.sh");
-        $output = shell_exec('/var/www/html/PDP/test/bk_project.sh "'.$hostname.'" "'.$username.'" "'.$pas.'" "'.$portnum.'" "'.$bkpath.'"');
+        $output = shell_exec("/var/www/html/PDP/test/shell/bk_project.sh");
+        $output = shell_exec('/var/www/html/PDP/test/shell/bk_project.sh "'.$hostname.'" "'.$username.'" "'.$pas.'" "'.$portnum.'" "'.$bkpath.'"');
         echo $output;
 
     }else{

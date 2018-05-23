@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 <html lang="ja">
-<link rel="stylesheet" type="text/css" href="css/index.css">
+<link rel="stylesheet" type="text/css" href="css/upload.css">
 <link rel="shortcut icon" href="./favicon.ico" >
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <link href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" rel="stylesheet">
@@ -15,7 +15,7 @@
         <h1 id="title"> 
             <a href="#">
                 <i class="fas fa-feather"></i>
-                    Data Backup Config 
+                    Upload Data
                 <i class="fas fa-feather"></i>
             </a>
         </h1>
@@ -49,19 +49,24 @@
 
             <li class="portnum">
                 <label for="portnum">ポート番号 </label>
-                <input type="text" name = "portnum" id="portnum" placeholder="指定なければ未記入でいいんだ" size="40">
+                <input type="text" name = "portnum" id="portnum" placeholder="指定なければ22でいいんだ" size="40">
             </li>
             
             <li class="bkpath">
-                <label for="bkpath">バックアップ先のパス </label>
-                <input type="text" name = "bkpath" id="bkpath" placeholder="指定なければ未記入でいいんだ" size="40">
+                <label for="bkpath">アップロードするフォルダ </label>
+                <input type="text" name = "bkpath" id="bkpath" placeholder="記入漏れしないでね" size="40">
+            </li>
+
+            <li class="bkpath">
+                <label for="bkpath">アップロード先のパス </label>
+                <input type="text" name = "bkpath" id="bkpath" placeholder="チェックプログラムないから気をつけて" size="40">
             </li>
         </ul>
     </div>
     </form>
 
     <button class="square_btn" id="ajax">
-        <i class="fas fa-wrench"></i> <span>  SET CONFIG</span>    
+        <i class="fas fa-cloud-upload-alt"></i> <span>  Upload</span>    
     </button>
 
     <div class="result"></div>
@@ -72,7 +77,7 @@
             // Ajax button click
             $('#ajax').on('click',function(){
                 $.ajax({
-                    url:'./Ajax/request.php',
+                    url:'./Ajax/upload.php',
                     type:'POST',
                     data:{
                         'hostname':$('#hostname').val(),
