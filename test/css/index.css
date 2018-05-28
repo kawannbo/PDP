@@ -31,7 +31,7 @@ body{
 
 div.inputtext ul{
     list-style: none;
-    margin-left: 37%;
+    margin-left: 36%;
     margin-top: 3%;
 }
 
@@ -81,7 +81,7 @@ textarea {
 }
 
 .square_btn:hover{
-	background: #478632;
+	background: #94e778;
 }
 
 footer {

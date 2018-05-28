@@ -13,7 +13,7 @@
 
 <header>
         <h1 id="title"> 
-            <a href="#">
+            <a href="clone.php">
                 <i class="fas fa-feather"></i>
                     Data Backup Config 
                 <i class="fas fa-feather"></i>
@@ -28,7 +28,7 @@
 </header>
 
 <body>
-    <?php $output = shell_exec("/var/www/html/PDP/test/shell/dfh.sh"); ?>
+    <?php $output = shell_exec("/var/www/html/shell/shell/dfh.sh"); ?>
     <form id="form_1" method="post" accept-charset="utf-8" return false>
     <div class="inputtext">
         <ul>

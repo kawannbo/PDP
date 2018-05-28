@@ -28,7 +28,7 @@
 </header>
 
 <body>
-    <?php $output = shell_exec("/var/www/html/PDP/test/shell/dfh.sh"); ?>
+    <?php $output = shell_exec("/var/www/html/shell/shell/dfh.sh"); ?>
     <form id="form_1" method="post" accept-charset="utf-8" return false>
     <div class="inputtext">
         <ul>

@@ -28,7 +28,7 @@
 </header>
 
 <body>
-    <?php $output = shell_exec("/var/www/html/PDP/test/shell/dfh.sh"); ?>
+    <?php $output = shell_exec("/var/www/html/shell/shell/dfh.sh"); ?>
     <form id="form_1" method="post" accept-charset="utf-8" return false>
     <div class="inputtext">
         <ul>
@@ -48,19 +48,15 @@
             </li>
 
             <li class="portnum">
-                <label for="portnum">ポート番号 </label>
-                <input type="text" name = "portnum" id="portnum" placeholder="指定なければ22でいいんだ" size="40">
+                <label for="portnum">ダウンロードしたいフォルダのパス  </label>
+                <input type="text" name = "portnum" id="portnum" placeholder="/var/www/html" size="40">
             </li>
             
             <li class="bkpath">
-                <label for="bkpath">ダウンロードしたいフォルダ </label>
+                <label for="bkpath">ダウンロードするフォルダ名 </label>
                 <input type="text" name = "bkpath" id="bkpath" placeholder="/var/www/html" size="40">
             </li>
 
-            <li class="bkpath">
-                <label for="bkpath">ダウンロードするフォルダ（自分のフォルダだ） </label>
-                <input type="text" name = "bkpath" id="bkpath" placeholder="チェックプログラムないから気をつけて" size="40">
-            </li>
         </ul>
     </div>
     </form>
@@ -77,7 +73,7 @@
             // Ajax button click
             $('#ajax').on('click',function(){
                 $.ajax({
-                    url:'./Ajax/upload.php',
+                    url:'./Ajax/download.php',
                     type:'POST',
                     data:{
                         'hostname':$('#hostname').val(),

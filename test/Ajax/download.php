@@ -16,10 +16,12 @@
         ";
         $result = nl2br($str);
         echo $result;
-
-        $output = shell_exec("/var/www/html/PDP/test/shell/rsync.sh");
-        $output = shell_exec('/var/www/html/PDP/test/shell/rsync.sh "'.$hostname.'" "'.$username.'" "'.$pas.'" "'.$portnum.'" "'.$bkpath.'"');
-        echo $output;
+echo "完了"; 
+$te = shell_exec("/var/www/html/shell/shell/dfh.sh");
+       // $output = shell_exec("/var/www/html/shell/shell/dw_rsync.sh");
+        //$output = shell_exec('/var/www/html/shell/shell/dw_rsync.sh "'.$hostname.'" "'.$username.'" "'.$pas.'" "'.$portnum.'" "'.$bkpath.'"');
+        echo $te;
+	echo "完了";
 
     }else{
         echo 'FAIL TO AJAX REQUEST';
