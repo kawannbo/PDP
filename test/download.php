@@ -51,11 +51,6 @@
                 <label for="portnum">ダウンロードしたいフォルダのパス  </label>
                 <input type="text" name = "portnum" id="portnum" placeholder="/var/www/html" size="40">
             </li>
-            
-            <li class="bkpath">
-                <label for="bkpath">ダウンロードするフォルダ名 </label>
-                <input type="text" name = "bkpath" id="bkpath" placeholder="/var/www/html" size="40">
-            </li>
 
         </ul>
     </div>
@@ -80,7 +75,6 @@
                         'username':$('#username').val(),
                         'passward':$('#passward').val(),
                         'portnum':$('#portnum').val(),
-                        'bkpath':$('#bkpath').val(),
                     }
                 })
                 // Ajaxリクエストが成功した時発動

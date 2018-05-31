@@ -5,28 +5,25 @@ cat <<__EOT__
   $2
   $3
   $4
-  $5
 の$#個です。
 __EOT__
-#!/bin/bash
 
-expect -c "
+sudo dir=`echo $4 | awk -F "/" '{ print $NF }'`
+
+sudo expect -c "
 set timeout 10
-spawn rsync -r www@160.16.92.117:/var/www/html /var/www/html/backup/rcs  --exclude='.git/' --progress
+spawn rsync -r "$2"@"$1":"$4" /var/www/html/backup/temp_dir/  --exclude='.git/' --progress
 
 expect \"Are you sure you want to continue connecting (yes/no)?\" {
     send \"yes\n\"
-    expect \"www@160.16.92.117's password:\"
-    send \"dcV98y7u\n\"
-} \"www@160.16.92.117's password:\" {
-    send \"dcV98y7u\n\"
+    expect \""$2"@"$1"'s password:\"
+    send \""$3"\n\"
+} \""$2"@"$1"'s password:\" {
+    send \""$3"\n\"
 }
-
-
-interact
+expect eof
 "
 
-zip -r /var/www/html/backup/rcs/rcs.zip /var/www/html/backup/rcs/html
-mv /var/www/html/backup/rcs/rcs.zip /var/www/html/backup/rcs/rcs`date +%Y%m%d`.zip
-
+sudo zip -r /var/www/html/backup/temp_dir/$dir.zip /var/www/html/backup/temp_dir/$dir
+sudo mv /var/www/html/backup/temp_dir/$dir.zip /var/www/html/backup/temp_dir/$dir`date +%Y%m%d`.zip
 

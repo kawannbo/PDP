@@ -4,21 +4,19 @@
         $hostname = $_POST['hostname'];
         $username = $_POST['username'];
         $pas = $_POST['passward'];
-        $portnum = $_POST['portnum'];
         $bkpath = $_POST['bkpath'];
         
         $str = "AJAX REQUEST SUCCESS\
         hostname:".$hostname."\n
         username:".$username."\n
         passward:".$pas."\n
-        portnum:".$portnum."\n
         bkpath:".$bkpath."\n
         ";
         $result = nl2br($str);
         echo $result;
 
-        $output = shell_exec("/var/www/html/PDP/test/shell/bk_project.sh");
-        $output = shell_exec('/var/www/html/PDP/test/shell/bk_project.sh "'.$hostname.'" "'.$username.'" "'.$pas.'" "'.$portnum.'" "'.$bkpath.'"');
+        //$output = shell_exec("/var/www/html/PDP/test/shell/bk_project.sh");
+        $output = shell_exec('sudo -u kawano /var/www/html/shell/shell/bk_project.sh "'.$hostname.'" "'.$username.'" "'.$pas.'" "'.$bkpath.'"');
         echo $output;
 
     }else{

@@ -46,11 +46,6 @@
                 <label for="passward">パスワード</label>
                 <input type="text" name = "passward" id="passward" placeholder="バックアップ先のパスワードいれてね" size="40">
             </li>
-
-            <li class="portnum">
-                <label for="portnum">ポート番号 </label>
-                <input type="text" name = "portnum" id="portnum" placeholder="指定なければ未記入でいいんだ" size="40">
-            </li>
             
             <li class="bkpath">
                 <label for="bkpath">バックアップ先のパス </label>
